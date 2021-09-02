@@ -37,8 +37,12 @@ export function Warehouse(props) {
     const formik = useFormik({
         initialValues: {
               data: '',
+              url: '',
+              email: '',
+              password: ''
         },
         onSubmit: values => {
+          console.log("values is "+JSON.stringify(values))
           axios.post(`${URL}user/save`, {token: stateToken, data: values})
           .then(res => {
 
@@ -63,18 +67,20 @@ export function Warehouse(props) {
     return (
         <div className="warehouse-main">
           <div className="dataForm">
-            <h2>HTTP Logger</h2>
+            <h2>Protected Password Vault</h2>
             <Form className="data-form" onSubmit={formik.handleSubmit}>
             <Form.Group controlId="formBasicName">
-                <Form.Label>Anything you want to save</Form.Label>
-                <Form.Control type="text" name="data" placeholder="Enter data" onChange={formik.handleChange} value={formik.values.data}/>
+                <Form.Label>Enter credentials</Form.Label>
+                <Form.Control type="text" name="url" placeholder="Enter URL" onChange={formik.handleChange} value={formik.values.url}/>
+                <Form.Control type="text" className="formBelowFields" name="email" placeholder="Enter username / email" onChange={formik.handleChange} value={formik.values.email}/>
+                <Form.Control type="text" className="formBelowFields" name="password" placeholder="Enter password" onChange={formik.handleChange} value={formik.values.password}/>
             </Form.Group>
             <Button variant="primary" type="submit">
                 Submit Data
             </Button>
             </Form>
           </div>
-            <div className="data-api">
+            {/* <div className="data-api">
               <p>You can also log your data from your application. Api details are given below</p>
               <code>Link: https://api.sayantanmishra.com/user/save</code><br/>
               <code>Request method: POST, Object:{`{"token":"` +stateToken+ `"
@@ -83,14 +89,14 @@ export function Warehouse(props) {
                   "your data": "your data"
                 }
             }`}</code>
-            </div>
+            </div> */}
           <div className="dataFormUpper" style={{marginTop:"150px"}}>
-          <h2>Your saved data</h2>
+          <h2>See your vault</h2>
           <Button style={{marginBottom:"30px"}} onClick={()=>fetchData()} >Fetch Data</Button>
           <ol>
           {
           testData.map(data => {
-            return (<li>{JSON.stringify(data.data.data)}</li>)
+            return (<li className="fetchdataClass"><span> URL: {data.data.url}  Email/Username: {data.data.email}  Password: {data.data.password}</span></li>)
           })
           }
           </ol>

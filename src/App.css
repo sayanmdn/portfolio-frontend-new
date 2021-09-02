@@ -81,3 +81,10 @@
   height: auto;
 }
 }
+
+.formBelowFields{
+  margin-top: 20px;
+}
+.fetchdataClass{
+  text-align: left;
+}
