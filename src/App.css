@@ -1,0 +1,83 @@
+.typeWritter{
+    font-size: 50px;
+    color: aliceblue;
+}
+.Area1{
+    padding-top: 20vh;
+}
+
+.text-muted{
+    color: red !important; 
+}
+.dataForm{
+    width: 30%;
+    padding-top: 10%;
+    margin: auto;
+}
+.home-social-links{
+    position: relative;
+    margin-top: 30px;
+    animation: 4s fadeIn;
+  animation-fill-mode: forwards;
+  
+  /* visibility: hidden; */
+  opacity: 0;
+}
+
+/* .home-social-links:hover {
+  background-color: #123;
+} */
+
+@keyframes fadeIn {
+  80% {
+    opacity: 0;
+  }
+  100% {
+    /* visibility: visible; */
+    opacity: 1;
+  }
+}
+.home-projects{
+    margin-top: 20vh;
+    text-align: left;
+    margin-left: 20%;
+    position: static;
+}
+.data-api{
+    text-align: left;
+}
+.dataFormUpper{
+    background-color: black;
+}
+.main-class{
+  background: linear-gradient(#112233, #002222);
+  color: white;
+  text-align: center;
+  height: 92.7vh
+}
+
+@media screen and (min-width: 480px) {
+  .login-form{
+    margin: auto;
+    width: 300px;
+}
+}
+.navbar{
+  text-align: right;
+}
+.navbar-collapse{
+  margin-right: 1rem;
+}
+.home-upper{
+  height: 40vh;
+}
+@media screen and (max-height: 680px) {
+  .home-projects{
+    margin-top: 40vh;
+    text-align: left;
+    margin-left: 20%;
+}
+.main-class{
+  height: auto;
+}
+}
